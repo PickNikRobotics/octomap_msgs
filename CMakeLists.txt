@@ -17,17 +17,22 @@ find_package(geometry_msgs REQUIRED)
 
 include_directories(include)
 
-add_message_files(
-  DIRECTORY msg
-  FILES Octomap.msg OctomapWithPose.msg
-  )
-
-add_service_files(
-  DIRECTORY srv
-  FILES GetOctomap.srv BoundingBoxQuery.srv
+set(msg_files
+	"msg/Octomap.msg"
+	"msg/OctomapWithPose.msg"
+)
+set(srv_files
+	"srv/BoundingBoxQuery.srv"
+	"srv/GetOctomap.srv"
 )
 
-generate_messages(DEPENDENCIES std_msgs geometry_msgs)
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${msg_files}
+  ${srv_files}
+	DEPENDENCIES
+		std_msgs
+		geometry_msgs
+)
 
 catkin_package(DEPENDS message_runtime geometry_msgs std_msgs
                INCLUDE_DIRS include
