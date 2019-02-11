@@ -34,9 +34,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 		geometry_msgs
 )
 
-catkin_package(DEPENDS message_runtime geometry_msgs std_msgs
-               INCLUDE_DIRS include
-)
+ament_package()
 
 # install(DIRECTORY include/
 #         DESTINATION include
