@@ -15,7 +15,7 @@ find_package(rosidl_default_generators REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-include_directories(include)
+# ament_export_include_directories(include)
 
 set(msg_files
 	"msg/Octomap.msg"
@@ -38,7 +38,7 @@ catkin_package(DEPENDS message_runtime geometry_msgs std_msgs
                INCLUDE_DIRS include
 )
 
-install(DIRECTORY include/
-        DESTINATION include
-        FILES_MATCHING PATTERN "*.h"
-        PATTERN ".svn" EXCLUDE)
+# install(DIRECTORY include/
+#         DESTINATION include
+#         FILES_MATCHING PATTERN "*.h"
+#         PATTERN ".svn" EXCLUDE)
